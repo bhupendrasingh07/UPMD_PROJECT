@@ -13,12 +13,12 @@ const router = express.Router();
 
 //routes
 //REGISTER || POST
-router.post("/register", registerController);
+router.post("/register", requireSignIN,registerController);
 
 //LOGIN || POST
-router.post("/login",loginController);
+router.post("/login",requireSignIN,loginController);
 
 //GET CURRENT USER || GET
-router.get("/current-user", currentUserController);
+router.get("/current-user",requireSignIN, currentUserController);
 
 module.exports = router;
