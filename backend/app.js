@@ -20,10 +20,12 @@ app.use(morgan('dev'))
 
 
 //Routes
-
+app.get('/',(req,res)=>{
+    res.send("Server is running")
+})
 app.use("/auth", require("./routes/authRoutes"));
 // app.use('/api/v1/admin',require('./routes/adminRoutes'))
-app.use('/admin',require('./routes/sidebarRoutes'))
+// app.use('/admin',require('./routes/sidebarRoutes'))
 
 
 app.listen(process.env.PORT||8080,console.log(`server is running on port ${process.env.PORT}`))
