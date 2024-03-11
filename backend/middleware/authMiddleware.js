@@ -1,37 +1,27 @@
-const JWT = require("jsonwebtoken");
-const userModel = require("../models/userModel");
+// import JWT from "jsonwebtoken";
+// import userModel from "../models/userModel";
+const JWT =require('jsonwebtoken')
+const userModel =require('../models/userModel')
 
- const requireSignIN = async (req, res, next) => {
+//Protected Routes token base
+ const requireSignIn = async (req, res, next) => {
   try {
-    const token = req.headers["authorization"].split(" ")[1];
-
-    JWT.verify(token, process.env.JWT_SECRET, (err, decode) => {
-      if (err) {
-        return res.status(401).send({
-          success: false,
-          message: "Auth Failed",
-        });
-      } else {
-        req.body.userId = decode.userId;
-        next();
-      }
-    });
+    const decode = JWT.verify(
+      req.headers.authorization,
+      process.env.JWT_SECRET
+    );
+    req.user = decode;
+    next();
   } catch (error) {
     console.log(error);
-    return res.status(401).send({
-      success: false,
-      error,
-      message: "Auth Failedd",
-    });
   }
 };
 
-
-//admin access
-const isAdmin=async(req,res,next)=>{
+//admin acceess
+ const isAdmin = async (req, res, next) => {
   try {
-    const user = await userModel.findById(req.user.userId);
-    if (user.role !== 'admin') {
+    const user = await userModel.findById(req.user._id);
+    if (user.role !== 1) {
       return res.status(401).send({
         success: false,
         message: "UnAuthorized Access",
@@ -48,5 +38,5 @@ const isAdmin=async(req,res,next)=>{
     });
   }
 };
- 
-module.exports = {requireSignIN,isAdmin}
+
+module.exports={requireSignIn,isAdmin}
