@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL =import.meta.env.REACT_APP_BASEURL||'http://localhost:8080/api/v1';
+const baseURL =import.meta.env.REACT_APP_BASEURL||'https://upmd-project.onrender.com';
 // const url='http://localhost:8080/api/v1'
 
 const API = axios.create({ baseURL });
