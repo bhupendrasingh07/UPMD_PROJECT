@@ -24,11 +24,11 @@ function App() {
           element={
              <ProtectedRoute>
              <Layout />
-            </ProtectedRoute>
+             </ProtectedRoute>
             
           }
         >
-          <Route  path="/portal" element={<ContentPage></ContentPage>}>
+          <Route  path="portal" element={<ContentPage></ContentPage>}>
              {/* <Route index element={<EditNiche></EditNiche>}></Route> */}
                <Route path="link" element={<EditNiche></EditNiche>}></Route>
                 <Route path="page" >
@@ -39,7 +39,7 @@ function App() {
                 <Route path="profile" element={<Profile></Profile>}></Route>
        </Route>
 
-       <Route path="/order"  >
+       <Route path="order"  >
          <Route path="guest-post" element={<EditNiche></EditNiche>}></Route>
          <Route path="niche-edit" element={<EditNiche></EditNiche>}></Route>
          <Route path="authority-link" element={<EditNiche></EditNiche>}></Route>

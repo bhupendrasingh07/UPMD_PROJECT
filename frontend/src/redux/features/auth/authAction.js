@@ -7,7 +7,7 @@ export const userLogin = createAsyncThunk(
   "auth/login",
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const {data} = await API.post("/auth/login", { email,password });
+      const {data} = await API.post("/auth/login",{email,password});
       //store token
       if (data.success) {
         alert(data.message);
@@ -19,11 +19,10 @@ export const userLogin = createAsyncThunk(
         // else{
         //   window.location.replace("/portal");
         // }
-
-       
       }
       return data;
     } catch (error) {
+      alert(error)
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
       } else {
@@ -59,9 +58,10 @@ export const userRegister = createAsyncThunk(
       if (data?.success) {
         alert("User Registerd Successfully");
         window.location.replace("/login");
-        // toast.success("User Registerd Successfully");
+        alert("User Registerd Successfully");
       }
     } catch (error) {
+      alert(error)
       console.log(error);
       if (error.response && error.response.data.message) {
         return rejectWithValue(error.response.data.message);
