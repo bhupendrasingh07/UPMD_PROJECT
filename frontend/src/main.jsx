@@ -12,10 +12,10 @@ import App from './App.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-           <Provider store={store}>
-               <App></App>
-          </Provider>
-    </BrowserRouter>
+    <Provider store={store}>
+       <BrowserRouter>    
+         <App></App>   
+        </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
 )

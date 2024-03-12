@@ -3,7 +3,7 @@ const dotenv=require('dotenv')
 const cors = require("cors");
 const morgan=require('morgan')
 const connectDB=require('./config/database')
-
+const authRoutes=require('./routes/authRoutes')
 //dot config
 dotenv.config();
 
@@ -23,7 +23,9 @@ app.use(morgan('dev'))
 app.get('/',(req,res)=>{
     res.send("Server is running")
 })
-app.use("/auth", require("./routes/authRoutes"));
+
+app.use("api/v1/auth",authRoutes);
+
 // app.use('/api/v1/admin',require('./routes/adminRoutes'))
 // app.use('/admin',require('./routes/sidebarRoutes'))
 

@@ -17,7 +17,7 @@ function App() {
     <>
       <Routes>
         <Route path="/login" element={<PublicRoutes><Login /></PublicRoutes> }  />
-        <Route path="/register" element={<PublicRoutes><Register /></PublicRoutes>} />
+        <Route path="/register" element={<PublicRoutes><Register/></PublicRoutes>} />
         <Route path="/admin" element={<AdminHome></AdminHome>} />
         <Route
           path="/"
@@ -28,7 +28,7 @@ function App() {
             
           }
         >
-          <Route  path="portal" element={<ContentPage></ContentPage>}>
+          <Route  path="/portal" element={<ContentPage></ContentPage>}>
              {/* <Route index element={<EditNiche></EditNiche>}></Route> */}
                <Route path="link" element={<EditNiche></EditNiche>}></Route>
                 <Route path="page" >
@@ -39,7 +39,7 @@ function App() {
                 <Route path="profile" element={<Profile></Profile>}></Route>
        </Route>
 
-       <Route path="order"  >
+       <Route path="/order"  >
          <Route path="guest-post" element={<EditNiche></EditNiche>}></Route>
          <Route path="niche-edit" element={<EditNiche></EditNiche>}></Route>
          <Route path="authority-link" element={<EditNiche></EditNiche>}></Route>

@@ -8,7 +8,7 @@ export const handleLogin = (e, email, password) => {
     if (!email || !password) {
       return alert("Please Privde All Feilds");
     }
-    store.dispatch(userLogin({ email, password}));
+    store.dispatch(userLogin({email, password}));
   } catch (error) {
     console.log(error);
   }
