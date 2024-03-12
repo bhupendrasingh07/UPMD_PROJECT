@@ -19,6 +19,6 @@ router.post("/register", registerController);
 router.post("/login",loginController);
 
 //GET CURRENT USER || GET
-// router.get("/current-user", requireSignIN ,isAdmin,currentUserController);
+router.get("/current-user", requireSignIN,currentUserController);
 
 module.exports = router;
