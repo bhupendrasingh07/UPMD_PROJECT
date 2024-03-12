@@ -1,13 +1,11 @@
 const express = require("express");
-
 const {
   registerController,
   loginController,
   currentUserController,
 } = require("../controllers/authController");
-
-const {requireSignIn,isAdmin}= require("../middleware/authMiddleware");
-
+// const requireSignIn= require("../middleware/authMiddleware");
+const authMiddelware = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
@@ -19,6 +17,6 @@ router.post("/register", registerController);
 router.post("/login",loginController);
 
 //GET CURRENT USER || GET
-router.get("/current-user", requireSignIN,currentUserController);
+router.get("/current-user", authMiddelware, currentUserController);
 
 module.exports = router;

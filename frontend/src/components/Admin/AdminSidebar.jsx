@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { TiEdit } from "react-icons/ti";
 
-// import { MdDelete } from "react-icons/md";
 const AdminSidebar = () => {
   
   // const sidebarItems = [
@@ -154,7 +153,7 @@ const AdminSidebar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await API.get("/admin/all-sidebarItem"); // Replace with your API endpoint
+        const response = await API.get("/all-sidebarItem"); // Replace with your API endpoint
         setSidebarData(response.data);
       } catch (error) {
         console.error("Error fetching sidebar data:", error);
